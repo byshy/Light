@@ -6,13 +6,17 @@
             android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/home" />
         <item
-            android:id="@+id/nav_balance"
-            android:icon="@drawable/ic_account_balance_wallet_black_24dp"
-            android:title="@string/balance" />
+            android:id="@+id/nav_your_orders"
+            android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+            android:title="@string/your_orders" />
         <item
             android:id="@+id/nav_notifications"
             android:icon="@drawable/ic_notifications_active_black_24dp"
             android:title="@string/notifications" />
+        <item
+            android:id="@+id/nav_balance"
+            android:icon="@drawable/ic_account_balance_wallet_black_24dp"
+            android:title="@string/balance" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings_black_24dp"

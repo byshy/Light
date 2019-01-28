@@ -1,19 +1,24 @@
 package com.byshy.light.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.byshy.light.Adapters.WebBannerAdapter;
 import com.byshy.light.Customs.BannerLayout;
 import com.byshy.light.R;
+import com.byshy.light.Activities.SearchActivity;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainFragment extends Fragment {
+
+    private BannerLayout recyclerBanner;
+    private TextView mSearchBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -21,17 +26,25 @@ public class MainFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.main_screen_content, container, false);
 
-        BannerLayout recyclerBanner = root.findViewById(R.id.recycler);
+        recyclerBanner = root.findViewById(R.id.recycler);
+        mSearchBar = root.findViewById(R.id.main_screen_search_bar);
+
+        mSearchBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent searchIntent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(searchIntent);
+            }
+        });
 
         List<String> list = new ArrayList<>();
-        list.add("https://i.stack.imgur.com/kQAvs.png");
-        list.add("https://i.stack.imgur.com/kQAvs.png");
-        list.add("https://i.stack.imgur.com/kQAvs.png");
-        list.add("https://i.stack.imgur.com/kQAvs.png");
-        list.add("https://i.stack.imgur.com/kQAvs.png");
-        list.add("https://i.stack.imgur.com/kQAvs.png");
-        list.add("https://i.stack.imgur.com/kQAvs.png");
-        WebBannerAdapter webBannerAdapter=new WebBannerAdapter(getContext(),list);
+        list.add("https://www.sciencedaily.com/images/2014/02/140223215134_1_540x360.jpg");
+        list.add("https://www.sciencedaily.com/images/2014/02/140223215134_1_540x360.jpg");
+        list.add("https://www.sciencedaily.com/images/2014/02/140223215134_1_540x360.jpg");
+        list.add("https://www.sciencedaily.com/images/2014/02/140223215134_1_540x360.jpg");
+        list.add("https://www.sciencedaily.com/images/2014/02/140223215134_1_540x360.jpg");
+        list.add("https://www.sciencedaily.com/images/2014/02/140223215134_1_540x360.jpg");
+        WebBannerAdapter webBannerAdapter = new WebBannerAdapter(getContext(), list);
         webBannerAdapter.setOnBannerItemClickListener(new BannerLayout.OnBannerItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -41,10 +54,7 @@ public class MainFragment extends Fragment {
 
         recyclerBanner.setAdapter(webBannerAdapter);
 
-        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-
         return root;
-
     }
 
 }

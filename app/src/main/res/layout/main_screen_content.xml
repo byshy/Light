@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content_frame"
@@ -14,9 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_margin="0dp"
-        android:background="@color/colorPrimary">
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
+        <TextView
+            android:id="@+id/main_screen_search_bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
@@ -25,107 +32,62 @@
             android:layout_marginBottom="7dp"
             android:background="@drawable/curved_layout"
             android:hint="@string/search"
-            android:inputType="text"
-            android:padding="10dp" />
+            android:paddingStart="10dp"
+            android:paddingTop="6dp"
+            android:textSize="18sp" />
 
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/main_buttons_holder"
-        android:layout_below="@+id/search_container"
+    <RelativeLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="1"
+        <com.byshy.light.Customs.BannerLayout
+            android:background="@color/white"
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            app:autoPlaying="true"
+            app:moveSpeed="1.8" />
+
+        <RelativeLayout
+            android:id="@+id/small_bar"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/white"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            android:orientation="horizontal">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:text="@string/deals"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/cart_image"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_shopping_cart_indigo_a700_24dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:text="@string/more"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cart"
-                    android:textColor="#464646"
-                    android:layout_below="@id/cart_image"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="16dp"
-                    android:textStyle="bold"
-                    android:textSize="24sp"/>
+        </RelativeLayout>
 
-            </RelativeLayout>
+    </RelativeLayout>
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/notes_image"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_speaker_notes_indigo_a700_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Notes"
-                    android:textColor="#464646"
-                    android:layout_below="@id/notes_image"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="16dp"
-                    android:textStyle="bold"
-                    android:textSize="24sp"/>
-
-            </RelativeLayout>
-
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
-    <com.byshy.light.Customs.BannerLayout
-        android:layout_alignParentBottom="true"
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        app:autoPlaying="true"
-        app:moveSpeed="1.8"/>
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
