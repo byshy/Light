@@ -1,11 +1,14 @@
 package com.byshy.light.Fragments;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.byshy.light.Adapters.WebBannerAdapter;
@@ -19,6 +22,7 @@ public class MainFragment extends Fragment {
 
     private BannerLayout recyclerBanner;
     private TextView mSearchBar;
+    private FrameLayout mSearchLayoutCont;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,12 +32,17 @@ public class MainFragment extends Fragment {
 
         recyclerBanner = root.findViewById(R.id.recycler);
         mSearchBar = root.findViewById(R.id.main_screen_search_bar);
+        mSearchLayoutCont = root.findViewById(R.id.search_container);
 
         mSearchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent searchIntent = new Intent(getActivity(), SearchActivity.class);
-                startActivity(searchIntent);
+                Pair pair = new Pair<View, String>(mSearchLayoutCont, "search_bar");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
+                        getActivity(),
+                        pair);
+                startActivity(searchIntent, options.toBundle());
             }
         });
 

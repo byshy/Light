@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.byshy.light.Fragments.FavFragment;
 import com.byshy.light.Fragments.AboutFragment;
 import com.byshy.light.Fragments.BalanceFragment;
 import com.byshy.light.Fragments.MainFragment;
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.main_screen_toolbar_cart) {
             Toast.makeText(MainActivity.this, "Cart clicked", Toast.LENGTH_LONG).show();
             return true;
-        }else if (id == R.id.main_screen_toolbar_notes) {
+        } else if (id == R.id.main_screen_toolbar_notes) {
             Toast.makeText(MainActivity.this, "Notes clicked", Toast.LENGTH_LONG).show();
             return true;
         }
@@ -86,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             loadFragment(new MainFragment());
         } else if (id == R.id.nav_your_orders) {
             loadFragment(new OrdersFragment());
+        } else if (id == R.id.nav_fav) {
+            loadFragment(new FavFragment());
         } else if (id == R.id.nav_notifications) {
             loadFragment(new NotificationFragment());
         } else if (id == R.id.nav_balance) {
@@ -104,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.generic, fragment).commit();
+    }
+
+    public Toolbar getToolbar(){
+        return toolbar;
     }
 
 }
