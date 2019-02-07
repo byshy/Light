@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -130,7 +131,7 @@ public class BannerLayoutManager extends RecyclerView.LayoutManager {
         float scale = calculateScale(targetOffset + mSpaceMain);
         itemView.setScaleX(scale);
         itemView.setScaleY(scale);
-        itemView.setElevation(itemView.getX() / 10);
+        itemView.setElevation((scale * 60) - 52);
     }
 
     /**

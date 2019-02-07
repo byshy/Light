@@ -43,7 +43,7 @@
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="220dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -52,7 +52,7 @@
         <com.byshy.light.Customs.BannerLayout
             android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="200dp"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
             android:background="@color/white"
@@ -101,7 +101,8 @@
         android:src="@drawable/ic_lightbulb_outline_black_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_container" />
+        app:layout_constraintTop_toBottomOf="@+id/search_container"
+        android:contentDescription="@string/meal_image" />
 
     <TextView
         android:id="@+id/textView2"
@@ -112,7 +113,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="Light travels in a vacuum at 300,000 km per second."
+        android:text="@string/light_caption"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/container"
         app:layout_constraintEnd_toEndOf="parent"

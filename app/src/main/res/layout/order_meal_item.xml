@@ -24,7 +24,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/circle_layout"
-            android:backgroundTint="@color/gray" />
+            android:backgroundTint="@color/gray"
+            android:contentDescription="@string/meal_type_icon" />
 
         <TextView
             android:maxLines="1"
@@ -49,12 +50,14 @@
             android:textSize="16sp" />
 
         <TextView
+            android:gravity="end"
+            android:layout_toEndOf="@id/order_date_or_meal_name"
             android:id="@+id/order_total_price_or_meal_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_margin="10dp"
-            android:text="500"
+            android:text="@string/testing_num"
             android:textColor="@color/green"
             android:textSize="20sp" />
 
